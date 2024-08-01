@@ -4,6 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { DataPointsModule } from './dataPoints/data-points.module';
 import { LocationsModule } from './locations/locations.module';
+import { APP_GUARD } from '@nestjs/core';
+import { ApiKeyGuard } from './Guards/apiKey.guard';
+import { ApiKeysModule } from './apiKeys/api-keys.module';
 
 @Module({
   imports: [
@@ -20,6 +23,13 @@ import { LocationsModule } from './locations/locations.module';
     }),
     DataPointsModule,
     LocationsModule,
+    ApiKeysModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: ApiKeyGuard,
+    },
   ],
 })
 export class AppModule {

@@ -15,3 +15,8 @@ export enum DataTemplateType {
   TrailDamage = 'TrailDamage',
   AtRiskSpecies = 'AtRiskSpecies',
 }
+
+export enum AccessLevelsEnum {
+  basic = 'basic',
+  admin = 'admin',
+}

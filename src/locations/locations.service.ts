@@ -20,9 +20,10 @@ export class LocationsService {
   }
 
   async createNewLocation(locationDto: CreateLocationDto): Promise<Location> {
+    console.log(locationDto);
     const location = new Location();
     location.name = locationDto.name;
-    location.location = locationDto.location;
+    location.location = `POINT(${locationDto.lat} ${locationDto.lon})`;
     location.city = locationDto.city;
     location.state = locationDto.state;
 

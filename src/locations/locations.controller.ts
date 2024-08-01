@@ -12,12 +12,12 @@ export class LocationsController {
     return this.locationsService.getLocations();
   }
 
-  @Get('location/:id')
+  @Get(':id')
   getLocationById(@Param('id') id: number): Promise<Location> {
     return this.locationsService.getLocationById(Number(id));
   }
 
-  @Post('location/create')
+  @Post('create')
   createNewLocation(@Body() locationDto: CreateLocationDto): Promise<Location> {
     return this.locationsService.createNewLocation(locationDto);
   }

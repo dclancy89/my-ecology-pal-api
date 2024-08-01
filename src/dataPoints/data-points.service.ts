@@ -16,15 +16,17 @@ export class DataPointsService {
   }
 
   async createNewData(dataPointDto: CreateDataPointDto): Promise<DataPoint> {
+    console.log(dataPointDto);
     const data = new DataPoint();
     data.locationId = dataPointDto.locationId;
     data.templateType = dataPointDto.templateType;
-    data.coordinates = dataPointDto.coordinates;
+    data.coordinates = `POINT(${dataPointDto.lat} ${dataPointDto.lon})`;
     data.data = dataPointDto.data;
     return this.dataPointsRepository.save(data);
   }
 
   async getDataByLocation(locationId: number): Promise<DataPoint[]> {
+    console.log(locationId);
     return this.dataPointsRepository.findBy({ locationId: locationId });
   }
 }

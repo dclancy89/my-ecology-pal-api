@@ -1,28 +1,25 @@
+import { AccessLevelsEnum } from 'src/Models/Models';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
 } from 'typeorm';
-import { DataTemplateType } from '../Models/Models';
 
 @Entity()
-export class DataPoint {
+export class ApiKey {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column('varchar')
-  templateType: DataTemplateType;
-
-  @Column('json')
-  data: string;
-
-  @Column('point')
-  coordinates: string;
+  key: string;
 
   @CreateDateColumn()
   createdAt: Date;
 
   @Column()
-  locationId: number;
+  name: string;
+
+  @Column()
+  accessLevel: AccessLevelsEnum;
 }

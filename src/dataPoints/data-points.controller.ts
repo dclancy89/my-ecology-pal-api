@@ -17,10 +17,11 @@ export class DataPointsController {
     return this.dataPointsService.createNewData(dataPointDto);
   }
 
-  @Get('location/:id/data')
+  @Get('location/:locationId/data')
   getDataByLocation(
     @Param('locationId') locationId: number,
   ): Promise<DataPoint[]> {
+    console.log(locationId);
     return this.dataPointsService.getDataByLocation(Number(locationId));
   }
 }
