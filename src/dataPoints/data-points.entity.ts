@@ -17,8 +17,11 @@ export class DataPoint {
   @Column('json')
   data: string;
 
-  @Column('point')
-  coordinates: string;
+  @Column({ type: 'double precision' })
+  lat: number;
+
+  @Column({ type: 'double precision' })
+  lon: number;
 
   @CreateDateColumn()
   createdAt: Date;

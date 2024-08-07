@@ -14,6 +14,9 @@ export class Location {
   @Column()
   state: string;
 
-  @Column('point')
-  location: string;
+  @Column({ type: 'double precision' })
+  lat: number;
+
+  @Column({ type: 'double precision' })
+  lon: number;
 }

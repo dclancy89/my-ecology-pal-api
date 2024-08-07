@@ -8,5 +8,6 @@ import { DataPointsService } from './data-points.service';
   imports: [TypeOrmModule.forFeature([DataPoint])],
   providers: [DataPointsService],
   controllers: [DataPointsController],
+  exports: [DataPointsService],
 })
 export class DataPointsModule {}

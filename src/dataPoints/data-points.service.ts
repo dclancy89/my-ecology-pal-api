@@ -20,7 +20,8 @@ export class DataPointsService {
     const data = new DataPoint();
     data.locationId = dataPointDto.locationId;
     data.templateType = dataPointDto.templateType;
-    data.coordinates = `POINT(${dataPointDto.lat} ${dataPointDto.lon})`;
+    data.lat = Number(dataPointDto.lat);
+    data.lon = Number(dataPointDto.lon);
     data.data = dataPointDto.data;
     return this.dataPointsRepository.save(data);
   }
