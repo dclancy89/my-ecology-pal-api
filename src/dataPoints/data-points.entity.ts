@@ -23,6 +23,9 @@ export class DataPoint {
   @Column({ type: 'double precision' })
   lon: number;
 
+  @Column()
+  recordedAt: Date;
+
   @CreateDateColumn()
   createdAt: Date;
 

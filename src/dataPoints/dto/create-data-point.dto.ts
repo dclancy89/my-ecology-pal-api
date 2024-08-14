@@ -6,4 +6,5 @@ export class CreateDataPointDto {
   lat: string;
   lon: string;
   locationId: number;
+  recordedAt: Date;
 }

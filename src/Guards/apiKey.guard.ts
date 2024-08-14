@@ -12,9 +12,7 @@ export class ApiKeyGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const req = context.switchToHttp().getRequest();
-    console.log(req.headers);
     const key = req.headers['x-api-key'] ?? req.query.api_key;
-    console.log(key);
     return this.apiKeysService.validateApiKey(key);
   }
 }

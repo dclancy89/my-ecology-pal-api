@@ -23,6 +23,7 @@ export class DataPointsService {
     data.lat = Number(dataPointDto.lat);
     data.lon = Number(dataPointDto.lon);
     data.data = dataPointDto.data;
+    data.recordedAt = dataPointDto.recordedAt;
     return this.dataPointsRepository.save(data);
   }
 
