@@ -15,16 +15,17 @@ export class DataPointsService {
     return this.dataPointsRepository.findOneBy({ id: id });
   }
 
-  async createNewData(dataPointDto: CreateDataPointDto): Promise<DataPoint> {
-    console.log(dataPointDto);
-    const data = new DataPoint();
-    data.locationId = dataPointDto.locationId;
-    data.templateType = dataPointDto.templateType;
-    data.lat = Number(dataPointDto.lat);
-    data.lon = Number(dataPointDto.lon);
-    data.data = dataPointDto.data;
-    data.recordedAt = dataPointDto.recordedAt;
-    return this.dataPointsRepository.save(data);
+  async createNewData(dataPointDtos: CreateDataPointDto[]): Promise<void> {
+    for (const dataPointDto of dataPointDtos) {
+      const data = new DataPoint();
+      data.locationId = dataPointDto.locationId;
+      data.templateType = dataPointDto.templateType;
+      data.lat = Number(dataPointDto.lat);
+      data.lon = Number(dataPointDto.lon);
+      data.data = dataPointDto.data;
+      data.recordedAt = dataPointDto.recordedAt;
+      this.dataPointsRepository.save(data);
+    }
   }
 
   async getDataByLocation(locationId: number): Promise<DataPoint[]> {

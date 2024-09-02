@@ -13,8 +13,8 @@ export class DataPointsController {
   }
 
   @Post('data/create')
-  createNewData(@Body() dataPointDto: CreateDataPointDto): Promise<DataPoint> {
-    return this.dataPointsService.createNewData(dataPointDto);
+  createNewData(@Body() dataPointDtos: CreateDataPointDto[]): Promise<void> {
+    return this.dataPointsService.createNewData(dataPointDtos);
   }
 
   @Get('location/:locationId/data')

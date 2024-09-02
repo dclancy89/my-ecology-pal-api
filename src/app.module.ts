@@ -12,11 +12,11 @@ import { ApiKeysModule } from './apiKeys/api-keys.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'password',
-      database: 'my_ecology_pal',
+      host: process.env.HOST,
+      port: Number(process.env.PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       autoLoadEntities: true,
       synchronize: true,
       legacySpatialSupport: false,
