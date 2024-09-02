@@ -13,7 +13,7 @@ import { ApiKeysModule } from './apiKeys/api-keys.module';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.HOST,
-      port: Number(process.env.PORT),
+      port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
